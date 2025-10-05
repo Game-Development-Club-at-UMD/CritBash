@@ -81,9 +81,6 @@ func setBPRDamage(bpr : BodyPartResource):
 
 func setMaxHealth():
 	MAX_HEALTH = current_health
-	print(MAX_HEALTH)
-	print(current_health)
-	print(damage)	
 	
 func getMaxHealth() -> int:
 	return MAX_HEALTH
