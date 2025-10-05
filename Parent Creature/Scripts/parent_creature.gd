@@ -1,6 +1,10 @@
 extends Node3D
 class_name ParentCreature
 
+@onready var MAX_HEALTH: int
+@onready var current_health: int
+@onready var damage: int
+
 ## TorsoHolder for the creature's Torso object
 @onready var torso: TorsoHolder = $Torso
 ## LimbHolder for creature's left arm Limb object
@@ -28,9 +32,12 @@ func _ready() -> void:
 	for holder in limb_holders:
 		holder.connect("instancing_new_limb", _on_new_limb_part_instanced)
 
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
 		debug_limb_swapping()
+	
+	MAX_HEALTH = current_health
 
 ## Sets the transform of each LimbHolder node
 func _on_new_torso_part_instanced(new_torso : Torso):
@@ -46,14 +53,50 @@ func _on_new_limb_part_instanced(new_limb : Limb):
 	pass
 
 func debug_limb_swapping():
-	for holder in limb_holders:
+	for holder in limb_holders as Array[BaseBodyPartHolder]:
 		if holder.name != "Head":
 			holder.set_body_part(load("res://Limb Scenes/Scenes/DebugLimb.tscn"))
 		else:
 			holder.set_body_part(load("res://Limb Scenes/Scenes/DebugHead.tscn"))
+		getLimbResource(holder)
 	torso.set_body_part(load("res://Limb Scenes/Scenes/DebugTorso.tscn"))
+	getLimbResource(torso)
 	addMovesToMoveDict()
+	setMaxHealth()
+
 	
+func getLimbResource(holder : BaseBodyPartHolder):
+	var bpr: BodyPartResource = holder.get_body_part().get_body_part_resource()
+	setBPRCurrentHealth(bpr)
+	setBPRDamage(bpr)
+	
+	
+func setBPRCurrentHealth(bpr : BodyPartResource):
+	current_health += bpr.getPartHealth()
+	
+	
+func setBPRDamage(bpr : BodyPartResource):
+	damage += bpr.getPartAttack()
+
+
+func setMaxHealth():
+	MAX_HEALTH = current_health
+	print(MAX_HEALTH)
+	print(current_health)
+	print(damage)	
+	
+func getMaxHealth() -> int:
+	return MAX_HEALTH
+	
+	
+func getCurrentHealth() -> int:
+	return current_health
+	
+	
+func getDamage() -> int:
+	return damage
+
+
 ##Adds all moves from limbs to a dictionary in moveHolder
 func addMovesToMoveDict():
 	#Clear previous moves in dict
@@ -63,6 +106,11 @@ func addMovesToMoveDict():
 		if child is BaseBodyPartHolder:
 			if !moveHolder.checkIfValueExists(child.get_body_part().get_body_part_resource().getMove()):
 				moveHolder.addtoMoveDict("Move" + str(moveHolder.moveDict.size() + 1),child.get_body_part().get_body_part_resource().getMove())
+
+
+# Subtracts `val` to current health.
+func subtractHealth(val: int) -> void:
+	current_health = clamp(getCurrentHealth() - val, 0, MAX_HEALTH)
 
 ## Returns the dictionary in moveHolder
 func getMovesHolder() -> MoveHolder:
