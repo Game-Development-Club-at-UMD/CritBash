@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dx2ult7l2gcdm"
+path="res://.godot/imported/minoarm.obj-457ab3a75d377eb05431f26fb045f58f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/minoarm.obj-457ab3a75d377eb05431f26fb045f58f.mesh"]
+
+source_file="res://Limb Scenes/BodyPartAssets/minoarm.obj"
+dest_files=["res://.godot/imported/minoarm.obj-457ab3a75d377eb05431f26fb045f58f.mesh", "res://.godot/imported/minoarm.obj-457ab3a75d377eb05431f26fb045f58f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

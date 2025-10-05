@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackMove" load_steps=2 format=3 uid="uid://dxsi22gvydxam"]
+
+[ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="1_4fcv5"]
+
+[resource]
+script = ExtResource("1_4fcv5")
+Damage_Value = 10
+modifier_type = 1
+name = "Attack2"
+metadata/_custom_type_script = "uid://deu8bkwxhb0im"

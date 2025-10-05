@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh0ubkkncw414"]
+
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_bl1mq"]
+[ext_resource type="Resource" uid="uid://076mrrrxg5pd" path="res://Body Parts/Resources/GenericLimb.tres" id="2_8t21d"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3cejn"]
+radius = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_ak6lm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bl1mq"]
+radius = 0.359375
+height = 2.5144043
+
+[node name="DebugLimb" type="Node3D" groups=["interact"]]
+script = ExtResource("1_bl1mq")
+body_part_resource = ExtResource("2_8t21d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96738124, 0)
+mesh = SubResource("CapsuleMesh_3cejn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ak6lm")
+
+[node name="Area3D" type="Area3D" parent="." groups=["interact"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70080256, 0)
+shape = SubResource("CapsuleShape3D_bl1mq")

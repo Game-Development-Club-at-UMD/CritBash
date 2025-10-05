@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://mkus6jx5gemi"]
+
+[ext_resource type="Script" uid="uid://c71fx32rsssc" path="res://CombatTimer/combat_timer.gd" id="1_tcxvd"]
+
+[node name="CombatTimer" type="Node2D"]
+script = ExtResource("1_tcxvd")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_right = 44.0
+offset_bottom = 322.0
+max_value = 6.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="value_changed" from="ProgressBar" to="." method="_on_progress_bar_value_changed"]

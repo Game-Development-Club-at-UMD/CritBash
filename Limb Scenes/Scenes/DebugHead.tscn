@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://isb33ti4wmsi"]
+
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_kvn2h"]
+[ext_resource type="Resource" uid="uid://076mrrrxg5pd" path="res://Body Parts/Resources/GenericLimb.tres" id="2_ww5eh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kvn2h"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kvn2h"]
+
+[node name="DebugHead" type="Node3D" groups=["interact"]]
+script = ExtResource("1_kvn2h")
+body_part_resource = ExtResource("2_ww5eh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46908867, 0)
+mesh = SubResource("SphereMesh_kvn2h")
+
+[node name="Area3D" type="Area3D" parent="." groups=["interact"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46908867, 0)
+shape = SubResource("SphereShape3D_kvn2h")

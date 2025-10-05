@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqxqly67jsiix"]
+
+[ext_resource type="Script" uid="uid://bh754o4e20gx1" path="res://PlayerController/player_controller.gd" id="1_tm7ni"]
+[ext_resource type="Texture2D" uid="uid://ca88jmepuw7wh" path="res://icon.svg" id="2_e7mp1"]
+
+[node name="PlayerController" type="Camera3D"]
+script = ExtResource("1_tm7ni")
+
+[node name="RotationHelper" type="Node3D" parent="."]
+
+[node name="FaceRayCast" type="RayCast3D" parent="RotationHelper"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+target_position = Vector3(0, -13.55, 0)
+collide_with_areas = true
+debug_shape_thickness = 1
+
+[node name="Cursor" type="Sprite3D" parent="RotationHelper/FaceRayCast"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, -0.42310786, 1.8494632e-08)
+billboard = 1
+fixed_size = true
+render_priority = 127
+texture = ExtResource("2_e7mp1")

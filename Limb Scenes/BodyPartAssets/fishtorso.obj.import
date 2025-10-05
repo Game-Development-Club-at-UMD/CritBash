@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2fjqai12m3ny"
+path="res://.godot/imported/fishtorso.obj-827d8adc879f9916afd9df02d2543985.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fishtorso.obj-827d8adc879f9916afd9df02d2543985.mesh"]
+
+source_file="res://Limb Scenes/BodyPartAssets/fishtorso.obj"
+dest_files=["res://.godot/imported/fishtorso.obj-827d8adc879f9916afd9df02d2543985.mesh", "res://.godot/imported/fishtorso.obj-827d8adc879f9916afd9df02d2543985.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

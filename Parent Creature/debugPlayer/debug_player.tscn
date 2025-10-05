@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpheptv2por27"]
+
+[ext_resource type="Script" uid="uid://62ujdxkrxy6o" path="res://Parent Creature/debugPlayer/debug_player.gd" id="1_mmhi2"]
+[ext_resource type="Script" uid="uid://dfvwkgkfiynmy" path="res://Parent Creature/Scripts/torso_holder.gd" id="2_c51v4"]
+[ext_resource type="Script" uid="uid://bplfeeihsj8cx" path="res://Parent Creature/Scripts/limb_holder.gd" id="3_7pmpx"]
+
+[node name="DebugPlayer" type="Node3D"]
+script = ExtResource("1_mmhi2")
+
+[node name="Torso" type="Node3D" parent="."]
+script = ExtResource("2_c51v4")
+
+[node name="LeftArm" type="Node3D" parent="."]
+script = ExtResource("3_7pmpx")
+
+[node name="RightArm" type="Node3D" parent="."]
+script = ExtResource("3_7pmpx")
+
+[node name="LeftLeg" type="Node3D" parent="."]
+script = ExtResource("3_7pmpx")
+
+[node name="RightLeg" type="Node3D" parent="."]
+script = ExtResource("3_7pmpx")
+
+[node name="Head" type="Node3D" parent="."]
+script = ExtResource("3_7pmpx")

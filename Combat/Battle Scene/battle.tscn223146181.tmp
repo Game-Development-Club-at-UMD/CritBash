@@ -1,0 +1,171 @@
+[gd_scene load_steps=10 format=3 uid="uid://cp2prdao74j3h"]
+
+[ext_resource type="Script" uid="uid://d4jalbtjm0yrc" path="res://Combat/Manager/CombatManager.gd" id="1_16hna"]
+[ext_resource type="PackedScene" uid="uid://b6ic7wsg00p1j" path="res://Enemy/enemy.tscn" id="2_16hna"]
+[ext_resource type="PackedScene" uid="uid://c6a7ifv5dqitu" path="res://Buttons/DodgeButton.tscn" id="2_fd3ov"]
+[ext_resource type="PackedScene" uid="uid://bpheptv2por27" path="res://Parent Creature/debugPlayer/debug_player.tscn" id="2_v35c4"]
+[ext_resource type="Texture2D" uid="uid://ca88jmepuw7wh" path="res://icon.svg" id="3_i431l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
+bg_color = Color(0.99607843, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip7xm"]
+bg_color = Color(0, 0.67058825, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sfm4"]
+bg_color = Color(0.972549, 0, 0.019607844, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fd3ov"]
+viewport_path = NodePath("Camera3D/SubViewport")
+
+[node name="Battle" type="Node3D"]
+script = ExtResource("1_16hna")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18644607, -0.07951462, 3.0908632)
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D"]
+transparent_bg = true
+size = Vector2i(1377, 587)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D/SubViewport"]
+
+[node name="DodgeButton" parent="Camera3D/SubViewport/CanvasLayer" instance=ExtResource("2_fd3ov")]
+unique_name_in_owner = true
+position = Vector2(377.085, 458.095)
+
+[node name="Playerstats" type="Panel" parent="Camera3D/SubViewport/CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -604.66003
+offset_top = -56.845
+offset_right = -604.66003
+offset_bottom = -56.845
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera3D/SubViewport/CanvasLayer/Playerstats"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
+mouse_force_pass_scroll_events = false
+theme_override_styles/background = SubResource("StyleBoxFlat_w7wwj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ip7xm")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Camera3D/SubViewport/CanvasLayer/Playerstats/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -11.0
+offset_right = 297.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "25/50"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Camera3D/SubViewport/CanvasLayer/Playerstats"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 593.0
+offset_bottom = 130.0
+columns = 2
+
+[node name="Attack1" type="Button" parent="Camera3D/SubViewport/CanvasLayer/Playerstats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "shit fuck"
+
+[node name="Attack2" type="Button" parent="Camera3D/SubViewport/CanvasLayer/Playerstats/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "glock 17"
+
+[node name="Attack3" type="Button" parent="Camera3D/SubViewport/CanvasLayer/Playerstats/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "talk tuah"
+
+[node name="Attack4" type="Button" parent="Camera3D/SubViewport/CanvasLayer/Playerstats/GridContainer"]
+layout_mode = 2
+text = "banana throw"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/SubViewport/CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 132.3
+offset_right = -994.6981
+offset_bottom = 4.0
+grow_horizontal = 2
+
+[node name="EnemyHealth" type="ProgressBar" parent="Camera3D/SubViewport/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_7sfm4")
+show_percentage = false
+
+[node name="Label" type="Label" parent="Camera3D/SubViewport/CanvasLayer/VBoxContainer/EnemyHealth"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 5.0
+offset_right = 194.0
+offset_bottom = 28.0
+text = "25/50"
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/SubViewport/CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_i431l")
+expand_mode = 5
+stretch_mode = 3
+
+[node name="Textbox" type="Panel" parent="Camera3D/SubViewport/CanvasLayer"]
+visible = false
+offset_left = 413.0
+offset_top = 176.0
+offset_right = 673.68
+offset_bottom = 253.465
+
+[node name="Label" type="Label" parent="Camera3D/SubViewport/CanvasLayer/Textbox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DebugPlayer" parent="." instance=ExtResource("2_v35c4")]
+
+[node name="Enemy" parent="." instance=ExtResource("2_16hna")]
+unique_name_in_owner = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_fd3ov")
+region_enabled = true
+region_rect = Rect2(-6.944275, -0.7622757, 779.48694, 517.29584)

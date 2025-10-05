@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckc8m3md3gxpi"]
+
+[ext_resource type="Script" uid="uid://dar7rr1l1o6e6" path="res://Limb Scenes/Scripts/torso.gd" id="1_smenp"]
+[ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_062iq"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_nk2vv"]
+
+[sub_resource type="Resource" id="Resource_588ym"]
+script = ExtResource("2_062iq")
+name = "Goober"
+metadata/_custom_type_script = "uid://deu8bkwxhb0im"
+
+[sub_resource type="Resource" id="Resource_i7onq"]
+script = ExtResource("3_nk2vv")
+move = SubResource("Resource_588ym")
+metadata/_custom_type_script = "uid://dd41tco78dti3"
+
+[sub_resource type="PrismMesh" id="PrismMesh_ppmt7"]
+size = Vector3(1.285, 1.84, 0.54)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_smenp"]
+
+[node name="DebugTorso" type="Node3D" node_paths=PackedStringArray("left_arm", "right_arm", "left_leg", "right_leg", "head") groups=["interact"]]
+script = ExtResource("1_smenp")
+left_arm = NodePath("LeftArm")
+right_arm = NodePath("RightArm")
+left_leg = NodePath("LeftLeg")
+right_leg = NodePath("RightLeg")
+head = NodePath("Head")
+body_part_resource = SubResource("Resource_i7onq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0)
+mesh = SubResource("PrismMesh_ppmt7")
+
+[node name="LeftArm" type="Marker3D" parent="."]
+transform = Transform3D(0.10577816, 0.9943898, 0, -0.9943898, 0.10577816, 0, 0, 0, 1, 0.64019674, 0.9215007, 0)
+top_level = true
+
+[node name="RightArm" type="Marker3D" parent="."]
+transform = Transform3D(0.07779795, -0.99696916, 0, 0.99696916, 0.07779795, 0, 0, 0, 1, -0.6117618, 0.92272663, 0)
+top_level = true
+
+[node name="LeftLeg" type="Marker3D" parent="."]
+transform = Transform3D(-0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0, 1, -0.23823631, -0.9970335, 0)
+top_level = true
+
+[node name="RightLeg" type="Marker3D" parent="."]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.26552474, -0.9567659, 0)
+top_level = true
+
+[node name="Head" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91903484, 0)
+top_level = true
+
+[node name="Area3D" type="Area3D" parent="." groups=["interact"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_smenp")

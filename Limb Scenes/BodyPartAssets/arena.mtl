@@ -1,0 +1,138 @@
+# Blender MTL File: 'arena.blend'
+# Material Count: 12
+
+newmtl Material.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.300000 C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+map_Kd C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+
+newmtl Material.004
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.300000 C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+map_Kd C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+
+newmtl Material.005
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.300000 C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+map_Kd C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+
+newmtl Material.006
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.300000 C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+map_Kd C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+
+newmtl Material.007
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.300000 C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+map_Kd C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+
+newmtl Material.008
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.300000 C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+map_Kd C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+
+newmtl Material.009
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.300000 C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+map_Kd C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+
+newmtl Material.010
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.300000 C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+map_Kd C:\\Users\\chris\\OneDrive\\Pictures\\rope-texture-seamless-free-thumb26.webp
+
+newmtl Material.023
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.024
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.714775 0.083396
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.025
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
