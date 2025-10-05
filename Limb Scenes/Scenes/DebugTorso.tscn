@@ -11,6 +11,8 @@ metadata/_custom_type_script = "uid://deu8bkwxhb0im"
 
 [sub_resource type="Resource" id="Resource_i7onq"]
 script = ExtResource("3_nk2vv")
+health = 20
+attack = 20
 move = SubResource("Resource_588ym")
 metadata/_custom_type_script = "uid://dd41tco78dti3"
 
