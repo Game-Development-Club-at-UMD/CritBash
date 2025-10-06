@@ -7,6 +7,6 @@ extends Move
 
 var modifier : Modifier = Modifier.new()
 
-func DoMove(_target : ParentCreature) -> void:
+func DoMove(target : ParentCreature) -> void:
 	Damage_Value = modifier.apply_modifier(modifier_type, Damage_Value)
-	#target.callDamage()
+	target.subtractHealth(Damage_Value)

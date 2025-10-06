@@ -5,6 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_nwcoa"]
 script = ExtResource("1_nrhf5")
+Damage_Value = 10
 name = "piss"
 metadata/_custom_type_script = "uid://deu8bkwxhb0im"
 

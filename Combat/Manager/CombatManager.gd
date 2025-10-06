@@ -12,6 +12,7 @@ class_name CombatManager extends Node3D
 
 
 func _ready() -> void:
+	dodge_button.visible = false
 	combat_ui.visible = false
 	#enemy.debug_limb_swapping()
 	#player.debug_limb_swapping()
@@ -21,9 +22,10 @@ func _ready() -> void:
 		#button.connect('clicked', callMoveOnEnemy)
 	enemy.connect("sendEnemyMove", callMoveOnPlayer)
 
-	#player.connect("sendPlayerMove", callMoveOnPlayer)
 	player.connect("sendMaxHealth", getPlayerMaxHealth)
 	player.connect("sendPlayerMoveHolder", updateUIButtons)
+	
+	combat_ui.connect("connectThisBitch", connectButtonSignal)
 	player.sendPlayerMoveHolder.emit(player.moveHolder)
 	
 	
@@ -71,6 +73,8 @@ func callMoveOnPlayer(move : Move):
 
 
 func callMoveOnEnemy(moveToCall : Move):
+	print("call this move: " + moveToCall.getName())
+	combat_ui.visible = false
 	moveToCall.DoMove(enemy)
 
 func getPlayerMaxHealth(_pMaxHealth : int):
@@ -102,3 +106,7 @@ func start_enemy_attack():
 
 func updateUIButtons(playerMHolder : MoveHolder):
 	combat_ui.create_button_from_dict(playerMHolder)
+
+
+func connectButtonSignal(button : ButtonInfo):
+	button.connect("sendMove", callMoveOnEnemy)

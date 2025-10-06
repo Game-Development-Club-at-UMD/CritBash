@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_588ym"]
 script = ExtResource("2_062iq")
+Damage_Value = 20
 name = "Goober"
 metadata/_custom_type_script = "uid://deu8bkwxhb0im"
 
