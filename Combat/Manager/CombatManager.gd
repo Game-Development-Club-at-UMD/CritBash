@@ -25,7 +25,10 @@ func _ready() -> void:
 	#for button in buttons_arr:
 		#button.connect('clicked', callMoveOnEnemy)
 	enemy.connect("sendEnemyMove", callMoveOnPlayer)
-	#player.connect("sendPlayerMove", callMoveOnPlayer)
+
+	player.connect("sendPlayerMove", callMoveOnPlayer)
+	player.connect("sendMaxHealth", getPlayerMaxHealth)
+	
 	
 	# give the player a moment to digest the scene before starting attack
 	#TODO: make this make a bit more sense, maybe wait for player input?
@@ -73,6 +76,8 @@ func callMoveOnPlayer(move : Move):
 func callMoveOnEnemy(moveToCall : Move):
 	moveToCall.DoMove(enemy)
 
+func getPlayerMaxHealth(pMaxHealth : int):
+	pass
 
 func start_player_attack():
 	print("PLAYER CHOOSE ATTACK")

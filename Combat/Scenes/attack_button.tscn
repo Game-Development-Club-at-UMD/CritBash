@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcqr8kwlrxj5o"]
+
+[ext_resource type="Script" uid="uid://5mkyhxxsx882" path="res://Combat/Scenes/button_move.gd" id="1_hy5oc"]
+[ext_resource type="Texture2D" uid="uid://civy0bjpo5v0d" path="res://IMG_6062.jpg" id="1_mrtul"]
+
+[node name="AttackButton" type="Button"]
+custom_minimum_size = Vector2(130, 71)
+offset_right = 130.0
+offset_bottom = 72.0
+script = ExtResource("1_hy5oc")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 72.0
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "text"
+horizontal_alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_mrtul")
+expand_mode = 5
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

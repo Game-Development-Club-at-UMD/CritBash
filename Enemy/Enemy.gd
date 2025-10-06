@@ -8,7 +8,7 @@ var rNum : int
 func SelectMove():
 	rNum = randi_range(1, getMovesHolder().moveDict.size())
 	sendEnemyMove.emit(getMovesHolder().getMoveFromDict("Move"+ str(rNum)))
-	print("Selected Move: " + getMovesHolder().getMoveFromDict("Move"+ str(rNum)).getName())
+	print(getMovesHolder().getMoveFromDict("Move"+ str(rNum)).getName())
 
 func SendDamageToPlayer() -> void:
 	pass

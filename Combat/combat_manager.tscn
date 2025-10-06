@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://jshkjoouu7u7"]
+
+[ext_resource type="PackedScene" uid="uid://c6a7ifv5dqitu" path="res://Buttons/DodgeButton.tscn" id="2_mcrup"]
+
+[node name="CombatManager" type="Node"]
+metadata/_custom_type_script = "uid://d4jalbtjm0yrc"
+
+[node name="DodgeButton" parent="." instance=ExtResource("2_mcrup")]
+position = Vector2(570, 533)
