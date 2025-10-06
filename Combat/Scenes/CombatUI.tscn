@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg2ay31ud2g6o"]
+[gd_scene load_steps=3 format=3 uid="uid://cg2ay31ud2g6o"]
 
 [ext_resource type="Script" uid="uid://b2fgtiv2l2ram" path="res://Combat/Scenes/Attack_buttons.gd" id="1_7vif2"]
+[ext_resource type="PackedScene" uid="uid://mkus6jx5gemi" path="res://CombatTimer/combat_timer.tscn" id="2_jpcbb"]
 
 [node name="CombatUi" type="Control"]
 layout_mode = 3
@@ -28,4 +29,13 @@ offset_right = -12.0
 offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 columns = 2
+
+[node name="CombatTimer" parent="." instance=ExtResource("2_jpcbb")]
