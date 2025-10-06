@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://to6s7yosykqv"]
+
+[ext_resource type="Script" uid="uid://dar7rr1l1o6e6" path="res://Limb Scenes/Scripts/torso.gd" id="1_6absf"]
+[ext_resource type="ArrayMesh" uid="uid://2fjqai12m3ny" path="res://Limb Scenes/BodyPartAssets/fishtorso.obj" id="1_xuilw"]
+[ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_5wr3v"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="2_wj2ws"]
+
+[sub_resource type="Resource" id="Resource_1ypsb"]
+script = ExtResource("2_5wr3v")
+Damage_Value = 1
+name = "flop"
+metadata/_custom_type_script = "uid://deu8bkwxhb0im"
+
+[sub_resource type="Resource" id="Resource_5wr3v"]
+script = ExtResource("2_wj2ws")
+health = 60
+attack = 1
+move = SubResource("Resource_1ypsb")
+metadata/_custom_type_script = "uid://dd41tco78dti3"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_82qq0"]
+size = Vector3(31.326416, 55.066162, 8.852783)
+
+[node name="FishBody" type="Node3D" node_paths=PackedStringArray("left_arm", "right_arm", "left_leg", "right_leg", "head") groups=["instance"]]
+script = ExtResource("1_6absf")
+left_arm = NodePath("LeftArm")
+right_arm = NodePath("RightArm")
+left_leg = NodePath("leftleg")
+right_leg = NodePath("RightLeg")
+head = NodePath("Head")
+body_part_resource = SubResource("Resource_5wr3v")
+
+[node name="Fishtorso" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.001204297, 0.9999994, 0, -0.9999994, -0.001204297, 0, 0, 0, 1, -0.3838501, 0, 0.30810547)
+mesh = ExtResource("1_xuilw")
+
+[node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7664795, -3.7303467, 0.29870605)
+shape = SubResource("BoxShape3D_82qq0")
+
+[node name="Head" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.013296, 0)
+
+[node name="LeftArm" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1000576, 2.8431702)
+
+[node name="RightArm" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1000576, -3.2222595)
+
+[node name="RightLeg" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.8216915, -1.3268127)
+
+[node name="leftleg" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.8216915, 2.467857)

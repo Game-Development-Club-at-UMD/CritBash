@@ -1,16 +1,19 @@
-[gd_resource type="Resource" script_class="BodyPartResource" load_steps=4 format=3 uid="uid://076mrrrxg5pd"]
+[gd_resource type="Resource" script_class="BodyPartResource" load_steps=5 format=3 uid="uid://076mrrrxg5pd"]
 
 [ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="1_nrhf5"]
 [ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="1_sbsve"]
+[ext_resource type="Texture2D" uid="uid://civy0bjpo5v0d" path="res://IMG_6062.jpg" id="2_nwcoa"]
 
 [sub_resource type="Resource" id="Resource_nwcoa"]
 script = ExtResource("1_nrhf5")
-name = "piss"
+Damage_Value = 12
+name = "Wet slap"
+texture = ExtResource("2_nwcoa")
 metadata/_custom_type_script = "uid://deu8bkwxhb0im"
 
 [resource]
 script = ExtResource("1_sbsve")
-health = 20
-attack = 20
+health = 40
+attack = 15
 move = SubResource("Resource_nwcoa")
 metadata/_custom_type_script = "uid://dd41tco78dti3"

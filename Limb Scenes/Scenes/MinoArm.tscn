@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcfq2f7hciuh"]
+
+[ext_resource type="ArrayMesh" uid="uid://dx2ult7l2gcdm" path="res://Limb Scenes/BodyPartAssets/minoarm.obj" id="1_55xlx"]
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_iqif5"]
+[ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_8xbdx"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_6qnh7"]
+
+[sub_resource type="Resource" id="Resource_jdlhp"]
+script = ExtResource("2_8xbdx")
+Damage_Value = 20
+name = "almighty punch"
+metadata/_custom_type_script = "uid://deu8bkwxhb0im"
+
+[sub_resource type="Resource" id="Resource_x2i1j"]
+script = ExtResource("3_6qnh7")
+health = 30
+attack = 20
+move = SubResource("Resource_jdlhp")
+metadata/_custom_type_script = "uid://dd41tco78dti3"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qow2j"]
+size = Vector3(1.9170532, 3.147461, 0.8284302)
+
+[node name="MinoArm" type="Node3D" groups=["instance"]]
+script = ExtResource("1_iqif5")
+body_part_resource = SubResource("Resource_x2i1j")
+
+[node name="Minoarm" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40253353, 0.11044271, -0.26704744)
+mesh = ExtResource("1_55xlx")
+
+[node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6499939, -1.0737305, -0.22219849)
+shape = SubResource("BoxShape3D_qow2j")

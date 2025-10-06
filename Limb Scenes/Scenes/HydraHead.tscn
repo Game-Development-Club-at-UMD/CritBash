@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://byfoeqiuqssvm"]
+
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_p72bt"]
+[ext_resource type="ArrayMesh" uid="uid://ctnobqjd8u0cr" path="res://Limb Scenes/BodyPartAssets/hydrahead.obj" id="1_pget0"]
+[ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_xkjbm"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_tmf10"]
+
+[sub_resource type="Resource" id="Resource_ben45"]
+script = ExtResource("2_xkjbm")
+Damage_Value = 30
+name = "Flame thrower"
+metadata/_custom_type_script = "uid://deu8bkwxhb0im"
+
+[sub_resource type="Resource" id="Resource_devv5"]
+script = ExtResource("3_tmf10")
+health = 50
+attack = 30
+move = SubResource("Resource_ben45")
+metadata/_custom_type_script = "uid://dd41tco78dti3"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wy8cq"]
+size = Vector3(1.7801514, 4.166931, 4.7440186)
+
+[node name="HydraTuah" type="Node3D"]
+script = ExtResource("1_p72bt")
+body_part_resource = SubResource("Resource_devv5")
+
+[node name="Hydrahead" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20428467, 0, -0.028808594)
+mesh = ExtResource("1_pget0")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19390869, 1.5863283, 1.1884155)
+shape = SubResource("BoxShape3D_wy8cq")

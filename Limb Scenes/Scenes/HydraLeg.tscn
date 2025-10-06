@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://cudrbtd87un4i"]
+
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_8oehj"]
+[ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_f32bv"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_0v4gd"]
+[ext_resource type="ArrayMesh" uid="uid://cho3vg61nv8ad" path="res://Limb Scenes/BodyPartAssets/hydraleg.obj" id="4_vi284"]
+
+[sub_resource type="Resource" id="Resource_qajjv"]
+script = ExtResource("2_f32bv")
+Damage_Value = 20
+name = "Stomp"
+metadata/_custom_type_script = "uid://deu8bkwxhb0im"
+
+[sub_resource type="Resource" id="Resource_gnhf2"]
+script = ExtResource("3_0v4gd")
+health = 20
+attack = 15
+move = SubResource("Resource_qajjv")
+metadata/_custom_type_script = "uid://dd41tco78dti3"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ct363"]
+size = Vector3(1, 1.7052612, 1.5570679)
+
+[node name="HydraLeg" type="Node3D"]
+script = ExtResource("1_8oehj")
+body_part_resource = SubResource("Resource_gnhf2")
+
+[node name="Hydraleg" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.085632324, -1.2175504, 0.06785466)
+mesh = ExtResource("4_vi284")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7902527, 0.37279963)
+shape = SubResource("BoxShape3D_ct363")
