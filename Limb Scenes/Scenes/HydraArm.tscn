@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c557m2d5ivejr"]
+
+[ext_resource type="ArrayMesh" uid="uid://chvkynwtdp8wx" path="res://Limb Scenes/BodyPartAssets/hydraarm.obj" id="1_b8lpq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlpqn"]
+size = Vector3(1.5502319, 1.0391235, 1.4794922)
+
+[node name="HydraArm" type="Node3D"]
+
+[node name="Hydraarm" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0024609105, -0.99999696, 0, 0.99999696, 0.0024609105, 0, 0, 0, 1, -0.07355833, 0.22308992, 0.6375512)
+mesh = ExtResource("1_b8lpq")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6114807, 0.17782593, 0.14111328)
+shape = SubResource("BoxShape3D_xlpqn")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://fsc2wnv1v7qo"]
+
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_22hrs"]
+[ext_resource type="ArrayMesh" uid="uid://dmyvbqw2rkswk" path="res://Limb Scenes/BodyPartAssets/minoleg.obj" id="1_hf3kx"]
+[ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_d6lya"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_qlipk"]
+
+[sub_resource type="Resource" id="Resource_kgxnh"]
+script = ExtResource("2_d6lya")
+Damage_Value = 20
+name = "Strong Kick"
+metadata/_custom_type_script = "uid://deu8bkwxhb0im"
+
+[sub_resource type="Resource" id="Resource_w1ql1"]
+script = ExtResource("3_qlipk")
+health = 30
+attack = 20
+move = SubResource("Resource_kgxnh")
+metadata/_custom_type_script = "uid://dd41tco78dti3"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5uqk"]
+size = Vector3(2.1699219, 4.189453, 1)
+
+[node name="MinotaurLeg" type="Node3D" groups=["instance"]]
+script = ExtResource("1_22hrs")
+body_part_resource = SubResource("Resource_w1ql1")
+
+[node name="Minoleg" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.007818945, 0, -0.9999695, 0, 1, 0, 0.9999695, 0, 0.007818945, 0.53713703, -0.8071688, 0.3439169)
+mesh = ExtResource("1_hf3kx")
+
+[node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58496094, -1.640625, 0)
+shape = SubResource("BoxShape3D_r5uqk")

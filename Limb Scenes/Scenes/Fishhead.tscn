@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf8qb2qfebbt0"]
+
+[ext_resource type="ArrayMesh" uid="uid://ctqpo7w1mnhxm" path="res://Limb Scenes/BodyPartAssets/fishhead.obj" id="1_pjr1r"]
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_warsm"]
+[ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_jn21v"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_53xrf"]
+
+[sub_resource type="Resource" id="Resource_fc2bp"]
+script = ExtResource("2_jn21v")
+Damage_Value = 10
+name = "fishy nibble"
+metadata/_custom_type_script = "uid://deu8bkwxhb0im"
+
+[sub_resource type="Resource" id="Resource_qqin1"]
+script = ExtResource("3_53xrf")
+health = 35
+attack = 10
+move = SubResource("Resource_fc2bp")
+metadata/_custom_type_script = "uid://dd41tco78dti3"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pjr1r"]
+size = Vector3(18.675293, 19.763916, 1)
+
+[node name="Fishhead" type="Node3D" groups=["instance"]]
+transform = Transform3D(-0.00043302402, -0.0016365517, 0.99999857, -0.9960206, -0.08912263, -0.00057715736, 0.08912343, -0.9960194, -0.0015914472, 0, 0, 0)
+script = ExtResource("1_warsm")
+body_part_resource = SubResource("Resource_qqin1")
+
+[node name="Fishhead" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9945438, -0.10432002, -0.00017308803, 0.10432003, 0.9945438, 3.6243815e-05, 0.00016836278, -5.4102158e-05, 1, -8.544082, -4.151792, -0.057581406)
+mesh = ExtResource("1_pjr1r")
+
+[node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 2.2351742e-07, -1.4551915e-11, 0, 0.9999925, 0, 1.6516424e-08, -1.2223609e-08, 1, -8.8376465, 0.27990508, -1.17579475e-08)
+shape = SubResource("BoxShape3D_pjr1r")
