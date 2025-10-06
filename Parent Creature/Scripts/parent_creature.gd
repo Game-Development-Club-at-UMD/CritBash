@@ -1,6 +1,9 @@
 extends Node3D
 class_name ParentCreature
 
+@warning_ignore("unused_signal")
+signal sendPlayerMoveHolder(mHolder : MoveHolder)
+
 @onready var MAX_HEALTH: int
 @onready var current_health: int
 @onready var damage: int
@@ -28,6 +31,7 @@ var moveHolder : MoveHolder = MoveHolder.new()
 
 ## Connects signals from BodyPartHolder nodes to their respective functions
 func _ready() -> void:
+	@warning_ignore("standalone_expression")
 	torso.connect("instancing_new_torso", _on_new_torso_part_instanced)
 	for holder in limb_holders:
 		holder.connect("instancing_new_limb", _on_new_limb_part_instanced)
@@ -47,6 +51,7 @@ func _on_new_torso_part_instanced(new_torso : Torso):
 	left_leg.set_transform(transforms.get("LeftLeg"))
 	right_leg.set_transform(transforms.get("RightLeg"))
 	head.set_transform(transforms.get("Head"))
+	
 
 @warning_ignore("unused_parameter")
 func _on_new_limb_part_instanced(new_limb : Limb):
@@ -64,7 +69,36 @@ func debug_limb_swapping():
 	addMovesToMoveDict()
 	setMaxHealth()
 
+func load_data_from_scene_switcher(packed_scene : PackedScene):
+	# instantiate the PackedScene
+	var loaded_scene : ParentCreature = packed_scene.instantiate() as ParentCreature
+	var packed_body_part : PackedScene = PackedScene.new()
+	var matched_holder : BaseBodyPartHolder
+	# add player scene to the tree so we can actually change its data
+	#get_tree().root.add_child(loaded_scene)
+	get_tree().root.add_child.call_deferred(loaded_scene)
+	for loaded_holder in loaded_scene.get_children():
+		# grab the player-equivalent BodyPartHolder
+		matched_holder = get_node(String(loaded_holder.name)) as BaseBodyPartHolder
+		# pack the loaded body part into a PackedScene to pass into the set_body_part() function
+		if loaded_holder.get_body_part() == null:
+			push_warning("you're trying to pull data from a null limb, dumbass")
+		else:
+			packed_body_part.pack(loaded_holder.get_body_part())
+			# pass in value to matched BodyPartHolder
+			matched_holder.set_body_part(packed_body_part)
+	# NUKE the loaded scene off the face of the earth
+	loaded_scene.queue_free()
+	addMovesToMoveDict()
 	
+	for holder in limb_holders as Array[BaseBodyPartHolder]:
+		getLimbResource(holder)
+	
+	getLimbResource(torso)
+	addMovesToMoveDict()
+	setMaxHealth()
+
+#region getters and setters
 func getLimbResource(holder : BaseBodyPartHolder):
 	var bpr: BodyPartResource = holder.get_body_part().get_body_part_resource()
 	setBPRCurrentHealth(bpr)
@@ -104,7 +138,6 @@ func addMovesToMoveDict():
 			if !moveHolder.checkIfValueExists(child.get_body_part().get_body_part_resource().getMove()):
 				moveHolder.addtoMoveDict("Move" + str(moveHolder.moveDict.size() + 1),child.get_body_part().get_body_part_resource().getMove())
 
-
 # Subtracts `val` to current health.
 func subtractHealth(val: int) -> void:
 	current_health = clamp(getCurrentHealth() - val, 0, MAX_HEALTH)
@@ -112,4 +145,5 @@ func subtractHealth(val: int) -> void:
 ## Returns the dictionary in moveHolder
 func getMovesHolder() -> MoveHolder:
 	return moveHolder
-	
+
+#endregion

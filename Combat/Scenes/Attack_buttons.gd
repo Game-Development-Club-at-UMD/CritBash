@@ -1,30 +1,36 @@
-extends Control
+class_name CombatUI extends Control
 
 var Buttonscene := preload("res://Combat/Scenes/attack_button.tscn")
 @onready var grid_container: GridContainer = $GridContainer
+@onready var combat_timer: CombatTimer = $CombatTimer
 
 var moveHolderInstance
 
-
-func _ready() -> void: 
-
-
-	debug()
-	create_button_from_dict(moveHolderInstance)
+#
+#func _ready() -> void: 
+#
+#
+	#debug()
+	#create_button_from_dict(moveHolderInstance)
 	
 func create_button_from_dict(Movedict: MoveHolder) -> void: 
-		for key in Movedict.moveDict.keys(): 
-			var newButton : ButtonInfo = Buttonscene.instantiate()
-			grid_container.add_child(newButton)
-			newButton.setMove(Movedict.moveDict[key]) 
-			newButton.setupVisuals() 
-			
+	for key in Movedict.moveDict.keys(): 
+		var newButton : ButtonInfo = Buttonscene.instantiate()
+		grid_container.add_child(newButton)
+		newButton.setMove(Movedict.moveDict[key]) 
+		newButton.setupVisuals() 
+
+
 func attackMove(newMoveHolder :MoveHolder):
 	moveHolderInstance = newMoveHolder
 			
 
 
-func debug(): 
+func getCombatTimer() -> CombatTimer:
+	return combat_timer
+
+
+func debug():
 	var move1 : AttackMove = load("res://Moves/Resources/BasicAttack.tres")
 	var move2 : AttackMove = load("res://Moves/Resources/BasicAttack2.tres")
 

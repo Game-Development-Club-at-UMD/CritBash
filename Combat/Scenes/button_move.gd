@@ -25,7 +25,6 @@ func setTextureButton(textureLoad) ->void:
 
 
 func setText() -> void:
-	print(label)
 	label.text = move.getName()
 
 
@@ -35,7 +34,6 @@ func setTexture() -> void:
 
 func setMove(newMove : Move):
 	move = newMove
-	print(move.getName())
 
 
 func setupVisuals() -> void:

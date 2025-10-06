@@ -10,15 +10,12 @@ signal textbox_closed
 
 
 func _ready():
-	
 	displaytext("a wild p-whizz has appeared!!!!!!! ")
-	
-	
 	
 	await self.textbox_closed 
 	
 	current_enemy_health = enemy.health 
-	
+
 func set_health(health, max_health, progress_bar): 
 	progress_bar.value = health
 	progress_bar.max_value = max_health

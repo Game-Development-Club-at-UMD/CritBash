@@ -6,6 +6,15 @@ signal sendMaxHealth(pMaxHealth : int)
 signal sendCurrentHealth(pCurrentHealth : int)
 
 
+func _ready() -> void:
+	super._ready()
+	if SceneSwitcher.get_player_scene() == null:
+		#TODO: replace this with SceneSwitcher.getDefaultPlayer()
+		debug_limb_swapping()
+	else:
+		load_data_from_scene_switcher(SceneSwitcher.get_player_scene())
+
+
 #Function to alter health
 func takeDamage(enemyDamage : int) -> void:
 	subtractHealth(enemyDamage)
@@ -15,13 +24,7 @@ func updateCurrentHealthUI() -> void:
 	sendCurrentHealth.emit(getCurrentHealth())
 
 
-
-func _ready() -> void:
-	#sendMaxHealth.emit(getMaxHealth())
-	#sendCurrentHealth.emit(getCurrentHealth())
-	pass
-
-func _process(delta: float) -> void:	
+func _process(_delta: float) -> void:	
 	#debug()
 	pass
 	

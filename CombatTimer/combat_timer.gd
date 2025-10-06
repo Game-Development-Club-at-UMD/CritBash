@@ -1,4 +1,4 @@
-extends Node2D
+class_name CombatTimer extends Node2D
 
 @onready var timer = $Timer
 @onready var progressbar = $ProgressBar
@@ -18,3 +18,11 @@ func _process(_delta) -> void:
 func _on_progress_bar_value_changed(value: float) -> void:
 	if value == 0:
 		progressDepleted.emit()
+
+
+func setMaxValue(maxValue : float) -> void:
+	progressbar.max_value = maxValue
+
+func resetValue():
+	progressbar.value = progressbar.max_value
+	timer.start()
