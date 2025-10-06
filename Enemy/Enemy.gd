@@ -6,7 +6,6 @@ var rNum : int
 
 
 func _ready() -> void:
-	scale = Vector3(5, 5, 5)
 	super._ready()
 	if SceneSwitcher.get_enemy_scene() == null:
 		#TODO: replace this with SceneSwitcher.getRandomEnemy()

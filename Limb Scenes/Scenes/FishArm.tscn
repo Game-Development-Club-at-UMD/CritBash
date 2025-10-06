@@ -14,6 +14,7 @@ mesh_instance_3d = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019041393, -0.019043742, 0)
+shaded = true
 texture_filter = 0
 texture = ExtResource("3_fqws8")
 region_enabled = true

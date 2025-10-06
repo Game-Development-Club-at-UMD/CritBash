@@ -9,8 +9,7 @@ signal sendCurrentHealth(pCurrentHealth : int)
 func _ready() -> void:
 	super._ready()
 	if SceneSwitcher.get_player_scene() == null:
-		#TODO: replace this with SceneSwitcher.getDefaultPlayer()
-		debug_limb_swapping()
+		loadLimbsFromPaths(CreatureCreator.get_new_enemy())
 	else:
 		load_data_from_scene_switcher(SceneSwitcher.get_player_scene())
 

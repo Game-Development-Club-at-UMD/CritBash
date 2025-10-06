@@ -32,6 +32,7 @@ body_part_resource = SubResource("Resource_1p168")
 mesh_instance_3d = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+shaded = true
 texture_filter = 0
 texture = ExtResource("4_8o2lj")
 region_enabled = true
