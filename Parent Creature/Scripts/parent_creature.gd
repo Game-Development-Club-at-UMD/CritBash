@@ -23,6 +23,7 @@ signal sendPlayerMoveHolder(mHolder : MoveHolder)
 
 ## Arayy of LimbHolders for each nontorso holder
 @onready var limb_holders : Array[LimbHolder] = [left_arm, right_arm, left_leg, right_leg, head]
+@onready var label_3d: Label3D = $Label3D
 
 ## Array of LimbHolder transforms for each body part
 var transforms : Dictionary[String, Transform3D]
@@ -37,11 +38,11 @@ func _ready() -> void:
 		holder.connect("instancing_new_limb", _on_new_limb_part_instanced)
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_accept"):
-		debug_limb_swapping()
-	
-	MAX_HEALTH = current_health
+#func _process(_delta: float) -> void:
+	#if Input.is_action_just_released("ui_accept"):
+		#debug_limb_swapping()
+	#
+	#MAX_HEALTH = current_health
 
 ## Sets the transform of each LimbHolder node
 func _on_new_torso_part_instanced(new_torso : Torso):
@@ -115,6 +116,8 @@ func setBPRDamage(bpr : BodyPartResource):
 
 func setMaxHealth():
 	MAX_HEALTH = current_health
+	label_3d.text = str(current_health)
+	print(label_3d.text)
 	
 func getMaxHealth() -> int:
 	return MAX_HEALTH
@@ -141,6 +144,7 @@ func addMovesToMoveDict():
 # Subtracts `val` to current health.
 func subtractHealth(val: int) -> void:
 	current_health = clamp(getCurrentHealth() - val, 0, MAX_HEALTH)
+	label_3d.text = str(current_health)
 
 ## Returns the dictionary in moveHolder
 func getMovesHolder() -> MoveHolder:

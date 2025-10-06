@@ -24,3 +24,9 @@ script = ExtResource("3_w5m17")
 
 [node name="Head" type="Node3D" parent="."]
 script = ExtResource("3_w5m17")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.999372, 0)
+billboard = 1
+text = "13"
+font_size = 124

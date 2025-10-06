@@ -28,8 +28,8 @@ func _process(_delta: float) -> void:
 	#debug()
 	pass
 	
-func debug() -> void:
-	if Input.is_action_just_released("ui_accept"):
-		debug_limb_swapping()
-		sendMaxHealth.emit(getMaxHealth())
-		sendCurrentHealth.emit(getCurrentHealth())
+#func debug() -> void:
+	#if Input.is_action_just_released("ui_accept"):
+		#debug_limb_swapping()
+		#sendMaxHealth.emit(getMaxHealth())
+		#sendCurrentHealth.emit(getCurrentHealth())
