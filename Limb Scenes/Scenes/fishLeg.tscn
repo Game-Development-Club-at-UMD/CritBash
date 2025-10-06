@@ -24,6 +24,7 @@ radius = 0.059783936
 height = 0.11956787
 
 [node name="FishLeg" type="Node3D" node_paths=PackedStringArray("mesh_instance_3d") groups=["instance"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026197106, -0.039722044, 0)
 script = ExtResource("1_e5ylg")
 body_part_resource = SubResource("Resource_vbp74")
 mesh_instance_3d = NodePath("Sprite3D")
