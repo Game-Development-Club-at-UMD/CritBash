@@ -28,13 +28,15 @@ body_part_resource = SubResource("Resource_rfat8")
 mesh_instance_3d = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, 0, 0, 0)
+transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, 0, 0.047230482, 0)
 texture_filter = 0
+render_priority = 2
 texture = ExtResource("4_u7hwt")
 region_enabled = true
 region_rect = Rect2(58.10714, 0, 30.402786, 22.00787)
 
 [node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047230482, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005249023, 0)

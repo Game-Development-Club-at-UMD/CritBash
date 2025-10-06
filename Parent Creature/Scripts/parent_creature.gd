@@ -69,6 +69,22 @@ func debug_limb_swapping():
 	addMovesToMoveDict()
 	setMaxHealth()
 
+func loadLimbsFromPaths(arr : Array[String]):
+	
+	for path in arr:
+		if path.containsn("arm"):
+			left_arm.set_body_part(load(path))
+			left_arm.set_body_part(load(path))
+		elif path.containsn("leg"):
+			left_leg.set_body_part(load(path))
+			right_leg.set_body_part(load(path))
+		elif path.containsn("torso"):
+			torso.set_body_part(load(path))
+		elif path.containsn("head"):
+			head.set_body_part(load(path))
+		else:
+			push_warning('what the fuck are you doing')
+
 func load_data_from_scene_switcher(packed_scene : PackedScene):
 	# instantiate the PackedScene
 	var loaded_scene : ParentCreature = packed_scene.instantiate() as ParentCreature

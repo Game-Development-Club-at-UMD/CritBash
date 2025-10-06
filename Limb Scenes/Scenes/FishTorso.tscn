@@ -32,29 +32,30 @@ body_part_resource = SubResource("Resource_5wr3v")
 mesh_instance_3d = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037151806, 0, 0.0028554099)
 texture_filter = 0
 texture = ExtResource("4_wj2ws")
 region_enabled = true
 region_rect = Rect2(161.2851, 16.980637, 38.714905, 26.333122)
 
 [node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+transform = Transform3D(0.004625141, -0.99998933, 0, 0.99998933, 0.004625141, 0, 0, 0, 1, 0.037151806, 0, 0.0028554099)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.019073486, -0.0077514653, 0.0062561035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019073486, -0.0077514653, 0.0062561035)
 shape = SubResource("BoxShape3D_wj2ws")
 
 [node name="LeftArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1231298, -0.040694017, -0.020644337)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10168411, -0.05922605, 0.058824897)
 
 [node name="RightArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105259016, -0.04849357, 0.024167866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07646407, -0.06874104, -0.011751412)
 
 [node name="LeftLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028511949, -0.06375345, -0.023190707)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040735632, -0.06375345, 0.02122647)
 
 [node name="RightLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018096663, -0.06694678, 0.029260129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.068162024, -0.06694678, -0.010494366)
 
 [node name="Head" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17201722, -0.021753863, 0.025772348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108357236, -0.0041580647, 0.032596335)

@@ -15,7 +15,7 @@ bg_color = Color(0.972549, 0, 0.019607844, 1)
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_16hna")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18644607, -0.07951462, 3.0908632)
 current = true
 

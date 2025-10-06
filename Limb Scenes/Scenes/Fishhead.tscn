@@ -31,6 +31,7 @@ mesh_instance_3d = NodePath("Sprite3D")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, -0.06656291, 0, 0)
 texture_filter = 0
+render_priority = 2
 texture = ExtResource("4_jn21v")
 region_enabled = true
 region_rect = Rect2(51.48132, 22.511719, 20.348324, 17.9544)

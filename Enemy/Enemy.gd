@@ -6,10 +6,11 @@ var rNum : int
 
 
 func _ready() -> void:
+	scale = Vector3(5, 5, 5)
 	super._ready()
 	if SceneSwitcher.get_enemy_scene() == null:
 		#TODO: replace this with SceneSwitcher.getRandomEnemy()
-		debug_limb_swapping()
+		loadLimbsFromPaths(CreatureCreator.get_new_enemy())
 	else:
 		load_data_from_scene_switcher(SceneSwitcher.get_enemy_scene())
 		

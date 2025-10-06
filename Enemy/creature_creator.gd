@@ -42,41 +42,47 @@ func _ready() -> void:
 				push_warning("File: ", file, " cannot be parsed to monster type")
 
 #TODO: add functions to return PackedScenes of specific 
-
-func get_new_enemy() -> Enemy:
-	# instantiate & add temp_enemy to scene to be able to edit it
-	var temp_enemy : Enemy = ENEMY.instantiate()
-	get_tree().root.add_child(temp_enemy)
-	
-	# create PackedScene holders for each body part type
-	var packed_arm = PackedScene.new()
-	var packed_leg = PackedScene.new()
-	var packed_head = PackedScene.new()
-	var packed_torso = PackedScene.new()
-	var packed_enemy = PackedScene.new()
-	
-	# grab a random body part from all available types
-	var random_arm : String = limb_scene_dir_address + arms.pick_random()
-	var random_leg : String = limb_scene_dir_address + legs.pick_random()
-	var random_head : String = limb_scene_dir_address + heads.pick_random()
-	var random_torso : String = limb_scene_dir_address + torsos.pick_random()
-	
-	# pack random body parts into PackedScenes
-	packed_arm.pack(load(random_arm).instantiate())
-	packed_leg.pack(load(random_leg).instantiate())
-	packed_head.pack(load(random_head).instantiate())
-	packed_torso.pack(load(random_torso).instantiate())
-	
-	# set temp_enemy's body parts to random body parts
-	temp_enemy.left_arm.set_body_part(packed_arm)
-	temp_enemy.right_arm.set_body_part(packed_arm)
-	temp_enemy.left_leg.set_body_part(packed_leg)
-	temp_enemy.right_leg.set_body_part(packed_leg)
-	temp_enemy.head.set_body_part(packed_head)
-	temp_enemy.torso.set_body_part(packed_torso)
-	
-	# pack enemy once its body parts are set
-	packed_enemy.pack(temp_enemy)
-	temp_enemy.queue_free()
-	# return packed enemy
-	return packed_enemy
+func get_new_enemy() -> Array[String]:
+	return [
+		limb_scene_dir_address + arms.pick_random(),
+		limb_scene_dir_address + legs.pick_random(),
+		limb_scene_dir_address + heads.pick_random(),
+		limb_scene_dir_address + torsos.pick_random(),
+	]
+#func get_new_enemy() -> Enemy:
+	## instantiate & add temp_enemy to scene to be able to edit it
+	#var temp_enemy : Enemy = ENEMY.instantiate()
+	#get_tree().root.add_child(temp_enemy)
+	#
+	## create PackedScene holders for each body part type
+	#var packed_arm = PackedScene.new()
+	#var packed_leg = PackedScene.new()
+	#var packed_head = PackedScene.new()
+	#var packed_torso = PackedScene.new()
+	#var packed_enemy = PackedScene.new()
+	#
+	## grab a random body part from all available types
+	#var random_arm : String = limb_scene_dir_address + arms.pick_random()
+	#var random_leg : String = limb_scene_dir_address + legs.pick_random()
+	#var random_head : String = limb_scene_dir_address + heads.pick_random()
+	#var random_torso : String = limb_scene_dir_address + torsos.pick_random()
+	#
+	## pack random body parts into PackedScenes
+	#packed_arm.pack(load(random_arm).instantiate())
+	#packed_leg.pack(load(random_leg).instantiate())
+	#packed_head.pack(load(random_head).instantiate())
+	#packed_torso.pack(load(random_torso).instantiate())
+	#
+	## set temp_enemy's body parts to random body parts
+	#temp_enemy.left_arm.set_body_part(packed_arm)
+	#temp_enemy.right_arm.set_body_part(packed_arm)
+	#temp_enemy.left_leg.set_body_part(packed_leg)
+	#temp_enemy.right_leg.set_body_part(packed_leg)
+	#temp_enemy.head.set_body_part(packed_head)
+	#temp_enemy.torso.set_body_part(packed_torso)
+	#
+	## pack enemy once its body parts are set
+	#packed_enemy.pack(temp_enemy)
+	#temp_enemy.queue_free()
+	## return packed enemy
+	#return packed_enemy

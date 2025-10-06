@@ -33,7 +33,6 @@ body_part_resource = SubResource("Resource_st8n3")
 mesh_instance_3d = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, 0, 0, 0)
 texture_filter = 0
 texture = ExtResource("4_mnffa")
 region_enabled = true
@@ -46,16 +45,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002319336, 0.008575439, 0.0
 shape = SubResource("BoxShape3D_mnffa")
 
 [node name="LeftArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10451307, 0.08453454, 0.026435792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10451307, 0.08453454, 0.017629541)
 
 [node name="RightArm" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11435969, 0.0687913, -0.022097975)
 
 [node name="LeftLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.074866526, -0.11077058, 0.01617451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06355897, -0.08633695, 0.043019548)
 
 [node name="RightLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06572805, -0.10270901, 0.010502666)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06572805, -0.10270901, -0.020244822)
 
 [node name="Head" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11377272, 0.011202216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11377272, 0.039457925)
