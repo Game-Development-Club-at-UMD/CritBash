@@ -24,7 +24,7 @@ func attackMove(newMoveHolder :MoveHolder):
 			
 
 
-func debug():
+func debug(): 
 	var move1 : AttackMove = load("res://Moves/Resources/BasicAttack.tres")
 	var move2 : AttackMove = load("res://Moves/Resources/BasicAttack2.tres")
 
