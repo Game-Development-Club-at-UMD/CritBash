@@ -1,12 +1,13 @@
 extends Node
 
-var packed_player_scene : PackedScene
-var packed_enemy_scene : PackedScene
+var packed_player_scene : PackedScene = null
+var packed_enemy_scene : PackedScene = null
 
 func _ready() -> void:
-	#TODO: remove debug init loading
-	save_player_scene(load("uid://dr6x0l7rc5yuk").instantiate())
-	save_enemy_scene(load("uid://dr6x0l7rc5yuk").instantiate())
+	pass
+	##TODO: remove debug init loading
+	#save_player_scene(load("uid://dr6x0l7rc5yuk").instantiate())
+	#save_enemy_scene(load("uid://dr6x0l7rc5yuk").instantiate())
 
 
 ## TODO: typecast player to PlayerCreature

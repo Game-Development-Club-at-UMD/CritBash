@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp2prdao74j3h"]
+[gd_scene load_steps=11 format=3 uid="uid://cp2prdao74j3h"]
 
 [ext_resource type="Script" uid="uid://d4jalbtjm0yrc" path="res://Combat/Manager/CombatManager.gd" id="1_16hna"]
 [ext_resource type="PackedScene" uid="uid://b6ic7wsg00p1j" path="res://Enemy/enemy.tscn" id="2_16hna"]
 [ext_resource type="PackedScene" uid="uid://c6a7ifv5dqitu" path="res://Buttons/DodgeButton.tscn" id="2_fd3ov"]
-[ext_resource type="PackedScene" uid="uid://bpheptv2por27" path="res://Parent Creature/debugPlayer/debug_player.tscn" id="2_v35c4"]
 [ext_resource type="Texture2D" uid="uid://ca88jmepuw7wh" path="res://icon.svg" id="3_i431l"]
+[ext_resource type="PackedScene" uid="uid://b06tbbb80heof" path="res://Player/player.tscn" id="6_dau4u"]
+[ext_resource type="PackedScene" uid="uid://cg2ay31ud2g6o" path="res://Combat/Scenes/CombatUI.tscn" id="6_v35c4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.99607843, 0, 0, 1)
@@ -160,11 +161,17 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DebugPlayer" parent="." instance=ExtResource("2_v35c4")]
+[node name="CombatUi" parent="Camera3D/SubViewport/CanvasLayer" instance=ExtResource("6_v35c4")]
+unique_name_in_owner = true
 
 [node name="Enemy" parent="." instance=ExtResource("2_16hna")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9078076, 0, -3.0171533)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture = SubResource("ViewportTexture_fd3ov")
 region_enabled = true
 region_rect = Rect2(-6.944275, -0.7622757, 779.48694, 517.29584)
+
+[node name="Player" parent="." instance=ExtResource("6_dau4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.328918, 0, -2.904407)

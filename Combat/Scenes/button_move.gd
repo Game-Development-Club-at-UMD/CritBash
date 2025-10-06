@@ -9,10 +9,7 @@ signal sendMove(sentMove : Move)
 var move : Move 
 
 
-
-
 func setText() -> void:
-	print(label)
 	label.text = move.getName()
 
 
@@ -22,7 +19,6 @@ func setTexture() -> void:
 
 func setMove(newMove : Move):
 	move = newMove
-	print(move.getName())
 
 
 func setupVisuals() -> void:

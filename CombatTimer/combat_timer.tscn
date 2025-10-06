@@ -9,7 +9,7 @@ script = ExtResource("1_tcxvd")
 unique_name_in_owner = true
 offset_right = 44.0
 offset_bottom = 322.0
-max_value = 6.0
+max_value = 3.0
 fill_mode = 3
 show_percentage = false
 
