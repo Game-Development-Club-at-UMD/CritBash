@@ -36,6 +36,22 @@ func _ready() -> void:
 	for holder in limb_holders:
 		holder.connect("instancing_new_limb", _on_new_limb_part_instanced)
 
+func loadLimbsFromPaths(arr : Array[String]):
+	
+	for path in arr:
+		if path.containsn("arm"):
+			left_arm.set_body_part(load(path))
+			left_arm.set_body_part(load(path))
+		elif path.containsn("leg"):
+			left_leg.set_body_part(load(path))
+			right_leg.set_body_part(load(path))
+		elif path.containsn("torso"):
+			torso.set_body_part(load(path))
+		elif path.containsn("head"):
+			head.set_body_part(load(path))
+		else:
+			push_warning('what the fuck are you doing')
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):

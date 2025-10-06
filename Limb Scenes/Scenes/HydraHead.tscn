@@ -19,18 +19,18 @@ move = SubResource("Resource_ben45")
 metadata/_custom_type_script = "uid://dd41tco78dti3"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wy8cq"]
-size = Vector3(1.7801514, 4.166931, 4.7440186)
+size = Vector3(1.7801514, 1.2512054, 1.6532898)
 
-[node name="HydraTuah" type="Node3D"]
+[node name="HydraHead" type="Node3D"]
 script = ExtResource("1_p72bt")
 body_part_resource = SubResource("Resource_devv5")
 
 [node name="Hydrahead" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20428467, 0, -0.028808594)
+transform = Transform3D(1.24, 0, 0, 0, 1.24, 0, 0, 0, 1.24, -0.20428467, -0.6423042, -0.028808594)
 mesh = ExtResource("1_pget0")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19390869, 1.5863283, 1.1884155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19390869, 0.6833818, 0.64985657)
 shape = SubResource("BoxShape3D_wy8cq")

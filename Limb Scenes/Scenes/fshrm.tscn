@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://076mrrrxg5pd" path="res://Body Parts/Resources/GenericLimb.tres" id="2_wslfc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4uits"]
-size = Vector3(4.5577393, 8.6203, 1)
+size = Vector3(0.6289215, 1.4773178, 0.23754883)
 
 [node name="FishArm" type="Node3D" groups=["instance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.065633774)
@@ -13,11 +13,11 @@ script = ExtResource("1_fqws8")
 body_part_resource = ExtResource("2_wslfc")
 
 [node name="Fishfin" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.008098245, 0.9999672, 0, -0.9999672, 0.008098245, -0.61520636, 1.4457161, 0.0715642)
+transform = Transform3D(0.185, 0, 0, 0, 0.0014981729, 0.18499394, 0, -0.18499394, 0.0014981729, -0.123555034, 0.16877133, 0.0715642)
 mesh = ExtResource("1_4uits")
 
 [node name="Area3D" type="Area3D" parent="." groups=["instance"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12542725, 3.1462708, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011634827, 0.5333214, 0.04309082)
 shape = SubResource("BoxShape3D_4uits")

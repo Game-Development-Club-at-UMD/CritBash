@@ -20,7 +20,7 @@ move = SubResource("Resource_x21vr")
 metadata/_custom_type_script = "uid://dd41tco78dti3"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f65u1"]
-size = Vector3(1.6142578, 2.9318848, 3.133545)
+size = Vector3(1.6142578, 2.9318848, 1.236023)
 
 [node name="MinoTorso" type="Node3D" node_paths=PackedStringArray("left_arm", "right_arm", "left_leg", "right_leg", "head") groups=["instance"]]
 script = ExtResource("1_mnffa")
@@ -32,25 +32,27 @@ head = NodePath("Head")
 body_part_resource = SubResource("Resource_st8n3")
 
 [node name="Minotorso" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3366282, -0.6291169, 0.05272168)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.082222536, -0.6291169, 0.24900974)
 mesh = ExtResource("1_f65u1")
 
 [node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.040756974, 0, -0.06875459)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106933594, -1.3236084, -0.08312988)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.1559143, -1.3236084, -0.08312989)
 shape = SubResource("BoxShape3D_f65u1")
 
 [node name="Head" type="Marker3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.040756974, 0, -0.06875459)
 
 [node name="LeftArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5318838, 1.3459911)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2745576, -0.5318838, -0.35448158)
 
 [node name="RightArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4996856, -1.4236326)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4319434, -0.4996856, 0.2334541)
 
 [node name="LeftLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6718864, 0.5145407)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.46205676, -2.6718864, -0.17798127)
 
 [node name="RightLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6718864, -0.6152735)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.6420077, -2.6718864, 0.061855644)

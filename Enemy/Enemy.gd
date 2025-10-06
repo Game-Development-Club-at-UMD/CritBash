@@ -9,7 +9,8 @@ func _ready() -> void:
 	super._ready()
 	if SceneSwitcher.get_enemy_scene() == null:
 		#TODO: replace this with SceneSwitcher.getRandomEnemy()
-		debug_limb_swapping()
+		#debug_limb_swapping()
+		loadLimbsFromPaths(CreatureCreator.get_new_enemy())
 	else:
 		load_data_from_scene_switcher(SceneSwitcher.get_enemy_scene())
 		
