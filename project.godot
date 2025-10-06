@@ -43,6 +43,10 @@ folder_colors={
 "res://PlayerController/": "red"
 }
 
+[global_group]
+
+instance=""
+
 [input]
 
 Dodge={
