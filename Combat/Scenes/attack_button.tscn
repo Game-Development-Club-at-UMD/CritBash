@@ -1,20 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcqr8kwlrxj5o"]
+[gd_scene load_steps=4 format=3 uid="uid://dcqr8kwlrxj5o"]
 
 [ext_resource type="Script" uid="uid://5mkyhxxsx882" path="res://Combat/Scenes/button_move.gd" id="1_hy5oc"]
 [ext_resource type="Texture2D" uid="uid://civy0bjpo5v0d" path="res://IMG_6062.jpg" id="1_mrtul"]
 
-[node name="AttackButton" type="Button"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkvb1"]
+
+[node name="AttackButton" type="TextureButton"]
+texture_filter = 1
 custom_minimum_size = Vector2(130, 71)
-offset_right = 130.0
-offset_bottom = 72.0
+offset_right = 194.0
+offset_bottom = 71.0
+stretch_mode = 5
 script = ExtResource("1_hy5oc")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 clip_contents = true
 layout_mode = 0
-offset_right = 130.0
+offset_right = 196.0
 offset_bottom = 72.0
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dkvb1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 custom_minimum_size = Vector2(100, 70)
