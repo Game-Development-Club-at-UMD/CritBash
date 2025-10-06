@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqwe6mrnb1uf3"]
+
+[ext_resource type="ArrayMesh" uid="uid://kq2nydr4711m" path="res://Limb Scenes/BodyPartAssets/fishfin.obj" id="1_hxl6o"]
+[ext_resource type="ArrayMesh" uid="uid://ctqpo7w1mnhxm" path="res://Limb Scenes/BodyPartAssets/fishhead.obj" id="2_g13go"]
+[ext_resource type="ArrayMesh" uid="uid://c6ynd2xj231rl" path="res://Limb Scenes/BodyPartAssets/fishleg.obj" id="3_ed3bm"]
+[ext_resource type="ArrayMesh" uid="uid://2fjqai12m3ny" path="res://Limb Scenes/BodyPartAssets/fishtorso.obj" id="4_tcbum"]
+
+[node name="Fish" type="Node3D"]
+
+[node name="Fishfin" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.528681, -0.5620571, 0.50423414, 0.7550897, 1.137886, -1.0208234, 0, 1.1385659, 1.2691307, 1.6520023, 0, 1.6815615)
+mesh = ExtResource("1_hxl6o")
+
+[node name="Fishhead" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0271564, 0, -0.47422218)
+mesh = ExtResource("2_g13go")
+
+[node name="Fishleg" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99889153, -0.047071613, 0, 0.047071613, 0.99889153, 0, 0, 0, -1, 19.953514, -2.6074219, -0.4036007)
+mesh = ExtResource("3_ed3bm")
+
+[node name="Fishtorso" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.216217, 1.1913557, -0.82150555)
+mesh = ExtResource("4_tcbum")
+
+[node name="Fishleg2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.864254, -2.6074219, -0.7155838)
+mesh = ExtResource("3_ed3bm")
+
+[node name="Fishfin2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.1818479, -0.8254042, 0.9104773, -1.1742256, 1.1311274, -0.49876943, -0.36256847, -0.97277135, -1.3525103, 5.0693035, 0, -4.7619333)
+mesh = ExtResource("1_hxl6o")

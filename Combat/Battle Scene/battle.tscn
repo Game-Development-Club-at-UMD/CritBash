@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cp2prdao74j3h"]
+[gd_scene load_steps=17 format=3 uid="uid://cp2prdao74j3h"]
 
 [ext_resource type="Script" uid="uid://d4jalbtjm0yrc" path="res://Combat/Manager/CombatManager.gd" id="1_16hna"]
 [ext_resource type="PackedScene" uid="uid://b6ic7wsg00p1j" path="res://Enemy/enemy.tscn" id="2_16hna"]
 [ext_resource type="PackedScene" uid="uid://c6a7ifv5dqitu" path="res://Buttons/DodgeButton.tscn" id="2_fd3ov"]
+[ext_resource type="PackedScene" uid="uid://dqwe6mrnb1uf3" path="res://Audience/fish.tscn" id="2_ygw2k"]
+[ext_resource type="PackedScene" uid="uid://pd5pplpftx57" path="res://Audience/minotaur.tscn" id="3_17hjl"]
 [ext_resource type="PackedScene" uid="uid://b06tbbb80heof" path="res://Player/player.tscn" id="6_dau4u"]
 [ext_resource type="PackedScene" uid="uid://cg2ay31ud2g6o" path="res://Combat/Scenes/CombatUI.tscn" id="6_v35c4"]
 [ext_resource type="ArrayMesh" uid="uid://doluclwbafk1h" path="res://Limb Scenes/BodyPartAssets/arena.obj" id="6_ygw2k"]
@@ -42,10 +44,26 @@ bg_color = Color(0.972549, 0, 0.019607844, 1)
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_16hna")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Environment"]
+
+[node name="Fish" parent="Environment/Node3D" instance=ExtResource("2_ygw2k")]
+transform = Transform3D(0.044197675, 0, 0.10616763, 0, 0.115, 0, -0.10616763, 0, 0.044197675, -0.7028012, 0, -16.154213)
+
+[node name="Minotaur" parent="Environment/Node3D" instance=ExtResource("3_17hjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.749034, 0, -7.147177)
+
+[node name="Minotaur2" parent="Environment/Node3D" instance=ExtResource("3_17hjl")]
+transform = Transform3D(-0.9073377, 0, -0.42040244, 0, 1, 0, 0.42040244, 0, -0.9073377, 13.358118, 0, -11.315627)
+
+[node name="Fish2" parent="Environment/Node3D" instance=ExtResource("2_ygw2k")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 10.587754, -1.2218461, 1.6962872)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_v35c4")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 0.0029147386, 0.99999577, 0, -0.99999577, 0.0029147386, 0, 2.9604788, -5.5027094)
 light_color = Color(0.908245, 0.816358, 0.36056677, 1)
 light_energy = 3.44
@@ -54,11 +72,16 @@ light_size = 2.995
 spot_range = 9.69082
 spot_angle = 48.94808
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.863359)
 omni_range = 122.60041
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Arena" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.469593, 0, -0.19895327, 0, 0.51, 0, 0.19895327, 0, 0.469593, -0.08961964, -1.9672977, -6.1892576)
+mesh = ExtResource("6_ygw2k")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 visible = false
 light_color = Color(0.6512397, 0.799954, 0.67070895, 1)
 
@@ -105,7 +128,3 @@ text = "25/50"
 
 [node name="CombatUi" parent="." instance=ExtResource("6_v35c4")]
 unique_name_in_owner = true
-
-[node name="Arena" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.469593, 0, -0.19895327, 0, 0.51, 0, 0.19895327, 0, 0.469593, -0.08961964, -1.9672977, -6.1892576)
-mesh = ExtResource("6_ygw2k")

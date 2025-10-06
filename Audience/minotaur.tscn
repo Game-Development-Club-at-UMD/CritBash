@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://pd5pplpftx57"]
+
+[ext_resource type="ArrayMesh" uid="uid://dx2ult7l2gcdm" path="res://Limb Scenes/BodyPartAssets/minoarm.obj" id="1_yifdp"]
+[ext_resource type="ArrayMesh" uid="uid://duhaanp3j5f2" path="res://Limb Scenes/BodyPartAssets/minohead.obj" id="2_raieh"]
+[ext_resource type="ArrayMesh" uid="uid://dmyvbqw2rkswk" path="res://Limb Scenes/BodyPartAssets/minoleg.obj" id="3_k3m6i"]
+[ext_resource type="ArrayMesh" uid="uid://dpkrpy6eouh8g" path="res://Limb Scenes/BodyPartAssets/minotorso.obj" id="4_3fh6c"]
+
+[node name="Minotaur" type="Node3D"]
+
+[node name="Minoarm" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44556117, 2.3861048, -1.875962)
+mesh = ExtResource("1_yifdp")
+
+[node name="Minoarm2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -0.5200956, 2.2202177, 0.54639685)
+mesh = ExtResource("1_yifdp")
+
+[node name="Minohead" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70727396, 3.0652726, -0.5606749)
+mesh = ExtResource("2_raieh")
+
+[node name="Minoleg" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -0.32295495, -0.87429214, -0.31031805)
+mesh = ExtResource("3_k3m6i")
+
+[node name="Minoleg2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34119356, -0.8855859, -0.875136)
+mesh = ExtResource("3_k3m6i")
+
+[node name="Minotorso" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30520892, 2.1449904, -0.5118701)
+mesh = ExtResource("4_3fh6c")

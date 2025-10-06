@@ -21,8 +21,8 @@ buses/default_bus_layout="res://Main Menu/default_bus_layout.tres"
 
 [autoload]
 
-SceneSwitcher="*res://scene_switcher.gd"
-CreatureCreator="*res://Enemy/creature_creator.gd"
+SceneSwitcher="*res://Globals/scene_switcher.gd"
+CreatureCreator="*res://Globals/creature_creator.gd"
 
 [display]
 
