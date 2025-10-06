@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://to6s7yosykqv"]
 
 [ext_resource type="Script" uid="uid://dar7rr1l1o6e6" path="res://Limb Scenes/Scripts/torso.gd" id="1_6absf"]
-[ext_resource type="ArrayMesh" uid="uid://2fjqai12m3ny" path="res://Limb Scenes/BodyPartAssets/fishtorso.obj" id="1_xuilw"]
 [ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_5wr3v"]
 [ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="2_wj2ws"]
+[ext_resource type="Texture2D" uid="uid://b54brbli1a483" path="res://Limb Scenes/2DBodyPartAssets/fish.png" id="4_wj2ws"]
 
 [sub_resource type="Resource" id="Resource_1ypsb"]
 script = ExtResource("2_5wr3v")
@@ -18,39 +18,43 @@ attack = 1
 move = SubResource("Resource_1ypsb")
 metadata/_custom_type_script = "uid://dd41tco78dti3"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_82qq0"]
-size = Vector3(31.326416, 55.066162, 8.852783)
+[sub_resource type="BoxShape3D" id="BoxShape3D_wj2ws"]
+size = Vector3(0.17346191, 0.32531738, 0.039978027)
 
-[node name="FishBody" type="Node3D" node_paths=PackedStringArray("left_arm", "right_arm", "left_leg", "right_leg", "head") groups=["instance"]]
+[node name="FishBody" type="Node3D" node_paths=PackedStringArray("left_arm", "right_arm", "left_leg", "right_leg", "head", "mesh_instance_3d") groups=["instance"]]
 script = ExtResource("1_6absf")
 left_arm = NodePath("LeftArm")
 right_arm = NodePath("RightArm")
-left_leg = NodePath("leftleg")
+left_leg = NodePath("LeftLeg")
 right_leg = NodePath("RightLeg")
 head = NodePath("Head")
 body_part_resource = SubResource("Resource_5wr3v")
+mesh_instance_3d = NodePath("Sprite3D")
 
-[node name="Fishtorso" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.001204297, 0.9999994, 0, -0.9999994, -0.001204297, 0, 0, 0, 1, -0.3838501, 0, 0.30810547)
-mesh = ExtResource("1_xuilw")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("4_wj2ws")
+region_enabled = true
+region_rect = Rect2(161.2851, 16.980637, 38.714905, 26.333122)
 
 [node name="Area3D" type="Area3D" parent="." groups=["instance"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7664795, -3.7303467, 0.29870605)
-shape = SubResource("BoxShape3D_82qq0")
-
-[node name="Head" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.013296, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.019073486, -0.0077514653, 0.0062561035)
+shape = SubResource("BoxShape3D_wj2ws")
 
 [node name="LeftArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1000576, 2.8431702)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1231298, -0.040694017, -0.020644337)
 
 [node name="RightArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1000576, -3.2222595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105259016, -0.04849357, 0.024167866)
+
+[node name="LeftLeg" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028511949, -0.06375345, -0.023190707)
 
 [node name="RightLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.8216915, -1.3268127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018096663, -0.06694678, 0.029260129)
 
-[node name="leftleg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.8216915, 2.467857)
+[node name="Head" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17201722, -0.021753863, 0.025772348)

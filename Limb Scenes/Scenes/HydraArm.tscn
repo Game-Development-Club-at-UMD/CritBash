@@ -1,18 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://c557m2d5ivejr"]
+[gd_scene load_steps=8 format=3 uid="uid://c557m2d5ivejr"]
 
-[ext_resource type="ArrayMesh" uid="uid://chvkynwtdp8wx" path="res://Limb Scenes/BodyPartAssets/hydraarm.obj" id="1_b8lpq"]
+[ext_resource type="Texture2D" uid="uid://d3fi4ovt78phw" path="res://Limb Scenes/2DBodyPartAssets/hydra.png" id="1_b8lpq"]
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_t8dum"]
+[ext_resource type="Script" uid="uid://c3r5bl4nks5g2" path="res://Moves/BaseMove.gd" id="2_ni6qt"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_8h3gj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xlpqn"]
-size = Vector3(1.5502319, 1.0391235, 1.4794922)
+[sub_resource type="Resource" id="Resource_od6di"]
+script = ExtResource("2_ni6qt")
+name = "Slash"
+metadata/_custom_type_script = "uid://c3r5bl4nks5g2"
 
-[node name="HydraArm" type="Node3D"]
+[sub_resource type="Resource" id="Resource_sdyhi"]
+script = ExtResource("3_8h3gj")
+health = 5
+attack = 20
+move = SubResource("Resource_od6di")
+metadata/_custom_type_script = "uid://dd41tco78dti3"
 
-[node name="Hydraarm" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0024609105, -0.99999696, 0, 0.99999696, 0.0024609105, 0, 0, 0, 1, -0.07355833, 0.22308992, 0.6375512)
-mesh = ExtResource("1_b8lpq")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b8lpq"]
+radius = 0.0619812
+height = 0.1239624
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="HydraArm" type="Node3D" node_paths=PackedStringArray("mesh_instance_3d")]
+script = ExtResource("1_t8dum")
+body_part_resource = SubResource("Resource_sdyhi")
+mesh_instance_3d = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, -0.02850458, -0.034984864, 0)
+texture_filter = 0
+texture = ExtResource("1_b8lpq")
+region_enabled = true
+region_rect = Rect2(73.188835, 23.923004, 12.208992, 13.405952)
+
+[node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02850458, -0.034984864, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6114807, 0.17782593, 0.14111328)
-shape = SubResource("BoxShape3D_xlpqn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0013122559, 0)
+shape = SubResource("CapsuleShape3D_b8lpq")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://byfoeqiuqssvm"]
 
 [ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_p72bt"]
-[ext_resource type="ArrayMesh" uid="uid://ctnobqjd8u0cr" path="res://Limb Scenes/BodyPartAssets/hydrahead.obj" id="1_pget0"]
 [ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_xkjbm"]
 [ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_tmf10"]
+[ext_resource type="Texture2D" uid="uid://d3fi4ovt78phw" path="res://Limb Scenes/2DBodyPartAssets/hydra.png" id="4_hnhpm"]
 
 [sub_resource type="Resource" id="Resource_ben45"]
 script = ExtResource("2_xkjbm")
@@ -18,19 +18,25 @@ attack = 30
 move = SubResource("Resource_ben45")
 metadata/_custom_type_script = "uid://dd41tco78dti3"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wy8cq"]
-size = Vector3(1.7801514, 4.166931, 4.7440186)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnhpm"]
+radius = 0.09277344
+height = 0.21166992
 
-[node name="HydraTuah" type="Node3D"]
+[node name="HydraTuah" type="Node3D" node_paths=PackedStringArray("mesh_instance_3d")]
 script = ExtResource("1_p72bt")
 body_part_resource = SubResource("Resource_devv5")
+mesh_instance_3d = NodePath("Sprite3D")
 
-[node name="Hydrahead" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20428467, 0, -0.028808594)
-mesh = ExtResource("1_pget0")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, -0.03761144, 0.071024895, 0)
+texture_filter = 0
+texture = ExtResource("4_hnhpm")
+region_enabled = true
+region_rect = Rect2(105.267365, 0, 38.302734, 27.513885)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." groups=["instance"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03761144, 0.071024895, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19390869, 1.5863283, 1.1884155)
-shape = SubResource("BoxShape3D_wy8cq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005249023, 0)
+shape = SubResource("CapsuleShape3D_hnhpm")

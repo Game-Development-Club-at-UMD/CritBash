@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://8ubq3g78e0l3"]
 
-[ext_resource type="ArrayMesh" uid="uid://dpkrpy6eouh8g" path="res://Limb Scenes/BodyPartAssets/minotorso.obj" id="1_f65u1"]
 [ext_resource type="Script" uid="uid://dar7rr1l1o6e6" path="res://Limb Scenes/Scripts/torso.gd" id="1_mnffa"]
 [ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_4wfhw"]
 [ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_0d7mx"]
+[ext_resource type="Texture2D" uid="uid://dpukdm21tidjd" path="res://Limb Scenes/2DBodyPartAssets/minotaur.png" id="4_mnffa"]
 
 [sub_resource type="Resource" id="Resource_x21vr"]
 script = ExtResource("2_4wfhw")
@@ -19,10 +19,10 @@ attack = 20
 move = SubResource("Resource_x21vr")
 metadata/_custom_type_script = "uid://dd41tco78dti3"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f65u1"]
-size = Vector3(1.6142578, 2.9318848, 3.133545)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnffa"]
+size = Vector3(0.2849121, 0.26263428, 0.057006836)
 
-[node name="MinoTorso" type="Node3D" node_paths=PackedStringArray("left_arm", "right_arm", "left_leg", "right_leg", "head") groups=["instance"]]
+[node name="MinoTorso" type="Node3D" node_paths=PackedStringArray("left_arm", "right_arm", "left_leg", "right_leg", "head", "mesh_instance_3d") groups=["instance"]]
 script = ExtResource("1_mnffa")
 left_arm = NodePath("LeftArm")
 right_arm = NodePath("RightArm")
@@ -30,27 +30,32 @@ left_leg = NodePath("LeftLeg")
 right_leg = NodePath("RightLeg")
 head = NodePath("Head")
 body_part_resource = SubResource("Resource_st8n3")
+mesh_instance_3d = NodePath("Sprite3D")
 
-[node name="Minotorso" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3366282, -0.6291169, 0.05272168)
-mesh = ExtResource("1_f65u1")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("4_mnffa")
+region_enabled = true
+region_rect = Rect2(110.05521, 11.953403, 26.811905, 26.09373)
 
 [node name="Area3D" type="Area3D" parent="." groups=["instance"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106933594, -1.3236084, -0.08312988)
-shape = SubResource("BoxShape3D_f65u1")
-
-[node name="Head" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002319336, 0.008575439, 0.0017700195)
+shape = SubResource("BoxShape3D_mnffa")
 
 [node name="LeftArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5318838, 1.3459911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10451307, 0.08453454, 0.026435792)
 
 [node name="RightArm" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4996856, -1.4236326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11435969, 0.0687913, -0.022097975)
 
 [node name="LeftLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6718864, 0.5145407)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.074866526, -0.11077058, 0.01617451)
 
 [node name="RightLeg" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6718864, -0.6152735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06572805, -0.10270901, 0.010502666)
+
+[node name="Head" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11377272, 0.011202216)

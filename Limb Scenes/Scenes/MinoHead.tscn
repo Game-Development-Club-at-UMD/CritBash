@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://b7fgiutx786dm"]
 
-[ext_resource type="ArrayMesh" uid="uid://duhaanp3j5f2" path="res://Limb Scenes/BodyPartAssets/minohead.obj" id="1_6q8vd"]
 [ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_u7hwt"]
 [ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_cbooa"]
 [ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_svijm"]
+[ext_resource type="Texture2D" uid="uid://dpukdm21tidjd" path="res://Limb Scenes/2DBodyPartAssets/minotaur.png" id="4_u7hwt"]
 
 [sub_resource type="Resource" id="Resource_ggffv"]
 script = ExtResource("2_cbooa")
@@ -18,19 +18,24 @@ attack = 20
 move = SubResource("Resource_ggffv")
 metadata/_custom_type_script = "uid://dd41tco78dti3"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w4drs"]
-size = Vector3(2.3309326, 1.7441406, 1.9541016)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u7hwt"]
+radius = 0.09277344
+height = 0.21166992
 
-[node name="MinoHead" type="Node3D" groups=["instance"]]
+[node name="MinoHead" type="Node3D" node_paths=PackedStringArray("mesh_instance_3d") groups=["instance"]]
 script = ExtResource("1_u7hwt")
 body_part_resource = SubResource("Resource_rfat8")
+mesh_instance_3d = NodePath("Sprite3D")
 
-[node name="Minohead" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3915329, 0.60537654, -0.06562424)
-mesh = ExtResource("1_6q8vd")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("4_u7hwt")
+region_enabled = true
+region_rect = Rect2(58.10714, 0, 30.402786, 22.00787)
 
 [node name="Area3D" type="Area3D" parent="." groups=["instance"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6654663, 0.8720703, 0.08544922)
-shape = SubResource("BoxShape3D_w4drs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005249023, 0)
+shape = SubResource("CapsuleShape3D_u7hwt")

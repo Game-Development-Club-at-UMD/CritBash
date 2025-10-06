@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://6yr278u7tcya"]
 
-[ext_resource type="ArrayMesh" uid="uid://c6ynd2xj231rl" path="res://Limb Scenes/BodyPartAssets/fishleg.obj" id="1_0sma0"]
 [ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_e5ylg"]
 [ext_resource type="Script" uid="uid://deu8bkwxhb0im" path="res://Moves/AttackMove.gd" id="2_j6l73"]
 [ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="3_bisu1"]
+[ext_resource type="Texture2D" uid="uid://b54brbli1a483" path="res://Limb Scenes/2DBodyPartAssets/fish.png" id="4_j6l73"]
 
 [sub_resource type="Resource" id="Resource_winrw"]
 script = ExtResource("2_j6l73")
@@ -19,19 +19,24 @@ attack = 10
 move = SubResource("Resource_winrw")
 metadata/_custom_type_script = "uid://dd41tco78dti3"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0sma0"]
-size = Vector3(16.886353, 16.248291, 7.979004)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j6l73"]
+radius = 0.059783936
+height = 0.11956787
 
-[node name="FishLeg" type="Node3D" groups=["instance"]]
+[node name="FishLeg" type="Node3D" node_paths=PackedStringArray("mesh_instance_3d") groups=["instance"]]
 script = ExtResource("1_e5ylg")
 body_part_resource = SubResource("Resource_vbp74")
+mesh_instance_3d = NodePath("Sprite3D")
 
-[node name="Fishleg" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9999973, -0.0023212861, 0, 0.0023212861, 0.9999973, -0.63427734, -4.1908956, -0.0040283203)
-mesh = ExtResource("1_0sma0")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, -7.450581e-09, -1.4551915e-11, 0, 1, 0, 4.3655746e-11, 0, 1, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("4_j6l73")
+region_enabled = true
+region_rect = Rect2(122.264206, 34.21686, 11.730209, 10.533245)
 
 [node name="Area3D" type="Area3D" parent="." groups=["instance"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4534187, -4.2878313, -3.489502)
-shape = SubResource("BoxShape3D_0sma0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0032653809, 0)
+shape = SubResource("CapsuleShape3D_j6l73")
